@@ -1,0 +1,21 @@
+# compose.yaml
+---
+version: "3.9"
+
+services:
+  headscale:
+    image: ghcr.io/juanfont/headscale:0.19
+    command: headscale serve
+
+    ports:
+      # Listen on virtual bridge (virbr0)
+      - "127.0.0.1:8080:8080"
+
+    volumes:
+      - ./config.yaml:/etc/headscale/config.yaml
+      - headscale:/var/lib/headscale
+
+volumes:
+  headscale:
+    driver: local
+
