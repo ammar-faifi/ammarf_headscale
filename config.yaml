@@ -8,14 +8,25 @@ noise:
   private_key_path: /data/noise_private.key
 
 ip_prefixes:
-  # - fd7a:115c:a1e0::/48
   - 100.64.0.0/10
+  - fd7a:115c:a1e0::/48
+
+derp:
+  server:
+    enabled: false
+  urls:
+    - https://controlplane.tailscale.com/derpmap/default
+  auto_update_enabled: true
+  update_frequency: 24h
 
 # Disables the automatic check for headscale updates on startup
 disable_check_updates: true
 
 db_type: sqlite3
 db_path: /data/db.sqlite
+
+tls_cert_path: ""
+tls_key_path: ""
 
 log:
   format: text
@@ -26,8 +37,8 @@ dns_config:
   nameservers:
     - 1.1.1.1
     - 1.0.0.1
-    # - 2606:4700:4700::1111
-    # - 2606:4700:4700::1001
+    - 2606:4700:4700::1111
+    - 2606:4700:4700::1001
 
   magic_dns: true
   base_domain: ammarf.sa
