@@ -19,6 +19,9 @@ derp:
     region_name: "Headscale Embedded DERP"
     stun_listen_addr: "0.0.0.0:3478"
 
+    ipv4: 1.2.3.4
+    ipv6: 2001:db8::1
+
   urls: []
 
   # urls:
@@ -43,10 +46,11 @@ log:
 dns_config:
   override_local_dns: true
   nameservers:
-    - 1.1.1.1
-    - 1.0.0.1
-    - 2606:4700:4700::1111
-    - 2606:4700:4700::1001
+    - 8.8.8.8
+    # - 1.1.1.1
+    # - 1.0.0.1
+    # - 2606:4700:4700::1111
+    # - 2606:4700:4700::1001
 
   magic_dns: true
   base_domain: ammarf.sa
